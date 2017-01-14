@@ -12,7 +12,7 @@ $(document).ready(function () {
   //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
   var frequencyData = new Uint8Array(100);
 
-  var svgHeight = '500';
+  var svgHeight = '300';
   var svgWidth = '1200';
   var barPadding = '1';
 
