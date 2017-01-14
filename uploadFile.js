@@ -1,26 +1,25 @@
-function dropEvent(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    
-    var droppedFiles = evt.dataTransfer.files;
-    
-    var reader = new FileReader();
-    
-    reader.onload = function(fileEvent) {
-        var data = fileEvent.target.result;
-        var audio = document.getElementById('testAudio');
-		audio = data;
+function startRead(evt) {
+    var file = document.getElementById(‘file‘).files[0];
+    if (file) {
+        if (file.type.match("mp3.*")) {
+            getAsAudio(file);
+            alert("Name: " + file.name);
+        }
+        else {
+            alert("Please choose an mp3 file");
+        }
     }
-    
-    reader.readAsArrayBuffer(droppedFiles[0]);
-}
-
-function dragOver(evt) {
     evt.stopPropagation();
     evt.preventDefault();
-    return false;
 }
 
-var dropArea = document.getElementById('body');
-body.addEventListener('drop', dropEvent,false);
-body.addEventListener('dragover', dragOver, false);
+function getAsAudio(readFile) {
+    var reader = new FileReader();
+    reader.readAsDataURL(readFile);
+    reader.onload = addAudio;
+}
+
+function addAudio(mp3src) {
+    var audio = document.getElementById('testAudio');
+    audio.src = mp3src.target.result;
+}
