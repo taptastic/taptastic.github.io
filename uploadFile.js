@@ -1,5 +1,4 @@
 function startRead(evt) {
-    console.log(frequencyData);
     var file = document.getElementById('file').files[0];
     if (file) {
         if (file.type.match("mp3.*")) {

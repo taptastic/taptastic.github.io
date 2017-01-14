@@ -54,6 +54,8 @@ $(document).ready(function () {
             .attr('fill', function (d) {
                 return 'rgb(0, 0, ' + d + ')';
             });
+
+        console.log(frequencyData);
     }
 
     // Run the loop
