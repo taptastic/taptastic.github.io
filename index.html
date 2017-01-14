@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<audio id="testAudio" src="sample1_classic.mp3"></audio>
+		<audio id="testAudio" crossOrigin="anonymous" src="sample1_classic.mp3"></audio>
 		<input id="file" type="file" onchange="startRead()"/>
 		<div>
 			<button onclick="document.getElementById('testAudio').play()">Play the Audio</button>
