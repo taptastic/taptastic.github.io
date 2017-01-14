@@ -10,6 +10,12 @@ $(document).ready(function () {
     // Bind our analyser to the media element source.
     audioSrc.connect(analyser);
     audioSrc.connect(audioCtx.destination);
+	
+	// Set default value for volumn
+	function setHalfVolume() {
+		var myAudio = audioElement;
+		myAudio.volume = 0.5;
+	}
 
     //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
     var frequencyData = new Uint8Array(64);
