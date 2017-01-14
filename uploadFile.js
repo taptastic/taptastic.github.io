@@ -9,8 +9,6 @@ function startRead(evt) {
             alert("Please choose an mp3 file");
         }
     }
-    evt.stopPropagation();
-    evt.preventDefault();
 }
 
 function getAsAudio(readFile) {
