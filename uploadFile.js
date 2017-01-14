@@ -13,7 +13,7 @@ function startRead(evt) {
 
 function getAsAudio(readFile) {
     var reader = new FileReader();
-    reader.readAsDataURL(readFile);
+    reader.readAsArrayBuffer(readFile);
     reader.onload = addAudio;
 }
 
