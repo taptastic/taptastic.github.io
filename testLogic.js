@@ -60,9 +60,8 @@ $(document).ready(function () {
 
 });
 
-function nextSong() {
+function chooseSong() {
 	  var audio = document.getElementById('testAudio');
-	  next = (next + 1) % 7;
 	  switch (next) {
 		  case 0: 
 			audio.src = "sample1_classic.mp3";
@@ -88,4 +87,15 @@ function nextSong() {
 		default:
 			break;
 	  }
+}
+
+function nextSong() {
+	next = (next + 1) % 7;
+	chooseSong();
+}
+
+function previousSong() {
+	next = next - 1;
+	if (next == -1) next = 6;
+	chooseSong();
 }
