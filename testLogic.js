@@ -1,4 +1,6 @@
 $(document).ready(function () {
+	
+	var next = 0;
 
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   var audioElement = document.getElementById('testAudio');
@@ -53,6 +55,20 @@ $(document).ready(function () {
         });
   }
 
+  function nextSong() {
+	  var audio = document.getElementById('testAudio');
+	  next = (next + 1) % 7;
+	  switch (next) {
+		  case 0: audio.src = "sample1_classic.mp3";
+		  case 1: audio.src = "sample2_pop.mp3";
+		  case 2: audio.src = "sample3_rap.mp3";
+		  case 3: audio.src = "sample4_ballad.mp3";
+		  case 4: audio.src = "sample5_soul.mp3";
+		  case 5: audio.src = "sample6_blue.mp3";
+		  case 6: audio.src = "sample7_edm.mp3";
+	  }
+  }
+  
   // Run the loop
   renderChart();
 
