@@ -1,6 +1,6 @@
+var next = 0;
+
 $(document).ready(function () {
-	
-	var next = 0;
 
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   var audioElement = document.getElementById('testAudio');
@@ -72,4 +72,4 @@ function nextSong() {
 		  case 5: audio.src = "sample6_blue.mp3";
 		  case 6: audio.src = "sample7_edm.mp3";
 	  }
-  }
+}
