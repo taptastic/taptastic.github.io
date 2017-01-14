@@ -2,6 +2,7 @@
 <html>
 	<body>
 		<audio id="testAudio" src="sample1_classic.mp3"></audio>
+		<input id="file" type="file" onchange="startRead()"/>
 		<div>
 			<button onclick="document.getElementById('testAudio').play()">Play the Audio</button>
 			<button onclick="document.getElementById('testAudio').pause()">Pause the Audio</button>
@@ -14,4 +15,5 @@
 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src="testLogic.js"></script>
+	<script src="uploadFile.js"></script>
 </html>
