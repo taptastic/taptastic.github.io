@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-<http-headers>
-    <header name="Access-Control-Allow-Origin" value="*"/>
-    <header name="Access-Control-Allow-Headers"
-            value="Origin, Accept, X-Requested-With, Content-Type, If-Modified-Since"/>
-    <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD"/>
-</http-headers>
 <body>
+<header name="Access-Control-Allow-Origin" value="*"></header>
+<header name="Access-Control-Allow-Headers"
+        value="Origin, Accept, X-Requested-With, Content-Type, If-Modified-Since"></header>
+<header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD"></header>
 <audio id="testAudio" crossOrigin="anonymous" src="sample1_classic.mp3"></audio>
 <input id="file" type="file" onchange="startRead()"/>
 <div>
