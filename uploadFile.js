@@ -19,5 +19,6 @@ function getAsAudio(readFile) {
 
 function addAudio(mp3src) {
     var audio = document.getElementById('testAudio');
+	audio.crossOrigin = "anonymous";
     audio.src = mp3src.target.result;
 }
