@@ -1,5 +1,5 @@
 function startRead(evt) {
-    var file = document.getElementById(‘file‘).files[0];
+    var file = document.getElementById('file').files[0];
     if (file) {
         if (file.type.match("mp3.*")) {
             getAsAudio(file);
