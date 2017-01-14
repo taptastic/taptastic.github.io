@@ -1,4 +1,5 @@
 var next = 0;
+var frequencyData;
 
 $(document).ready(function () {
 
@@ -12,7 +13,7 @@ $(document).ready(function () {
     audioSrc.connect(audioCtx.destination);
 
     //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-    var frequencyData = new Uint8Array(64);
+    frequencyData = new Uint8Array(64);
 
     var svgHeight = '300';
     var svgWidth = '1200';
