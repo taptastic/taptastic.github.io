@@ -54,8 +54,13 @@ $(document).ready(function () {
            return 'rgb(0, 0, ' + d + ')';
         });
   }
+  
+  // Run the loop
+  renderChart();
 
-  function nextSong() {
+});
+
+function nextSong() {
 	  var audio = document.getElementById('testAudio');
 	  next = (next + 1) % 7;
 	  switch (next) {
@@ -68,8 +73,3 @@ $(document).ready(function () {
 		  case 6: audio.src = "sample7_edm.mp3";
 	  }
   }
-  
-  // Run the loop
-  renderChart();
-
-});
