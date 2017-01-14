@@ -13,12 +13,16 @@ function startRead(evt) {
 
 function getAsAudio(readFile) {
     var reader = new FileReader();
-    reader.onload = addAudio;
+    reader.onload = function() {
+        var audio = document.getElementById('testAudio');
+        audio.crossOrigin = "anonymous";
+        audio.src = window.URL.createObjectURL(readFile);
+    };
     reader.readAsArrayBuffer(readFile);
 }
 
 function addAudio(mp3src) {
     var audio = document.getElementById('testAudio');
 	audio.crossOrigin = "anonymous";
-    audio.src = URL.createObjectURL(mp3src);
+    audio.src = window.URL.createObjectURL(mp3src);
 }
