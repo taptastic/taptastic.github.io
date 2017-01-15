@@ -37,13 +37,13 @@ function peakAnalysis() {
 
 	// Working with MAIN PART first
 	// motion values: 0 for stationary, 1 for right, -1 for left
-	for (var i = 64; i < indexMPArray.length; i++) {
+	for (var i = 1; i < indexMPArray.length; i++) {
 		// Not the same peak, meaning there is some transition in peak => Longitudinal
-		if (Math.abs(indexMPArray[i] - indexMPArray[i-64]) > 8) {
+		if (Math.abs(indexMPArray[i] - indexMPArray[i-1]) > 4) {
 			// Record time frame in which the peak transit
 			mpLongitudinal.push(i);
 			// Record direction of travel
-			if (indexMPArray[i] > indexMPArray[i-64]) {
+			if (indexMPArray[i] > indexMPArray[i-1]) {
 				mpMotion.push(1); // RIGHT
 			} else mpMotion.push(-1); // LEFT
 		}
