@@ -12,6 +12,8 @@ score = 0;
 var frame = 0;
 var bpm;
 
+var flag = true;
+
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
@@ -76,6 +78,7 @@ function updateGameArea1() {
     down.redraw();
     right.redraw();
     for (i = 0; i < myObstacles.length; i += 1) {
+
         myObstacles[i].y += 1;
         if (myObstacles[i].y >= HEIGHT) {
             myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
@@ -91,6 +94,7 @@ function updateGameArea() {
     down.redraw();
     right.redraw();
     for (i = 0; i < myObstacles.length; i += 1) {
+        play();
         myObstacles[i].y += 1;
         if (myObstacles[i].y >= HEIGHT) {
             myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
@@ -249,4 +253,11 @@ function extractArrow() {
 
 function calculateBpm() {
     bpm = (duration/ countLengthSong);
+}
+
+function play() {
+    if (flag) {
+        setTimeout(document.getElementById('testAudio').play(), 15000);
+        flag = false;
+    }
 }
