@@ -26,13 +26,13 @@ function peakAnalysis() {
 
 	// Working with Main part first
 	// motionCheck: 0 for stationary, 1 for right, -1 for left
-	var mpLongitudinal = [];
+	var mpTransverse = [];
 	var mpMotion = [];
 	for (var i = 1; i < indexMPArray.length; i++) {
 		// Not the same peak, meaning there is some transition in peak => Transverse
 		if (indexMPArray[i] != indexMPArray[i-1]) {
-			// Record position in which the peak transit
-			mpLongitudinal.push(indexMPArray[i-1]);
+			// Record time frame in which the peak transit
+			mpTransverse.push(i);
 			// Record direction of travel
 			if (indexMPArray[i] > indexMPArray[i-1]) {
 				mpMotion.push(1);
@@ -40,12 +40,18 @@ function peakAnalysis() {
 		} else mpMotion.push(0);
     }
     // Seeking for longitudinal motion: a significant change in value of highest peak
-    var mpTransverse = [];
+    var mpLongitudinal = [];
 	for (var i = 1; i < valueMPArray.lengthh; i++) {
 		// Check for sudden increase in value of peak. Value used: 32
-		if (valueMPArray[i] - valueMPArray[] >= 32){
-
+		if (valueMPArray[i] - valueMPArray[i-1] >= 32){
+			// Record time frame in which the peak changes suddenly
+			mpLongitudinal.push(i);
 		}
 	}
+	// In the end, what we have is:
+	// mpTransverse holds time frames of change transversely
+	// mpLongitudinal holds time frames of change longitudinally
+	// mpMotion holds direction of highest peak in each time frame
 
+	
 }
