@@ -42,8 +42,7 @@ function updateGameArea() {
         // Returns a random number between min (inclusive) and max (exclusive)
         pos = Math.floor(Math.random()*(maxPos-minPos)+minPos);
         x = pos*60+20;
-        var img = new Image();
-        img.src = "down_arrow.png";
+        var img = document.getElementById('down_arrow');
         myObstacles.push(new draw(50, 50, x, -50, img, img));
     }
     left.update();
