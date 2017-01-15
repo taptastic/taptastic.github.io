@@ -67,34 +67,34 @@ $(document).ready(function () {
 
 });
 
-function chooseSong() {
-    var audio = document.getElementById('testAudio');
-    switch (next) {
-        case 0:
-            audio.src = "sample1_classic.mp3";
-            break;
-        case 1:
-            audio.src = "sample2_pop.mp3";
-            break;
-        case 2:
-            audio.src = "sample3_rap.mp3";
-            break;
-        case 3:
-            audio.src = "sample4_ballad.mp3";
-            break;
-        case 4:
-            audio.src = "sample5_soul.mp3";
-            break;
-        case 5:
-            audio.src = "sample6_blue.mp3";
-            break;
-        case 6:
-            audio.src = "sample7_edm.mp3";
-            break;
-        default:
-            break;
-    }
-}
+// function chooseSong() {
+//     var audio = document.getElementById('testAudio');
+//     switch (next) {
+//         case 0:
+//             audio.src = "sample1_classic.mp3";
+//             break;
+//         case 1:
+//             audio.src = "sample2_pop.mp3";
+//             break;
+//         case 2:
+//             audio.src = "sample3_rap.mp3";
+//             break;
+//         case 3:
+//             audio.src = "sample4_ballad.mp3";
+//             break;
+//         case 4:
+//             audio.src = "sample5_soul.mp3";
+//             break;
+//         case 5:
+//             audio.src = "sample6_blue.mp3";
+//             break;
+//         case 6:
+//             audio.src = "sample7_edm.mp3";
+//             break;
+//         default:
+//             break;
+//     }
+// }
 
 // Set default value for volumn
 function setHalfVolume() {
@@ -102,16 +102,16 @@ function setHalfVolume() {
 	audio.volume = 0.5;
 }
 
-function nextSong() {
-    next = (next + 1) % 7;
-    chooseSong();
-}
-
-function previousSong() {
-    next = next - 1;
-    if (next == -1) next = 6;
-    chooseSong();
-}
+// function nextSong() {
+//     next = (next + 1) % 7;
+//     chooseSong();
+// }
+//
+// function previousSong() {
+//     next = next - 1;
+//     if (next == -1) next = 6;
+//     chooseSong();
+// }
 
 function playAudio() {
     peakCollection();
