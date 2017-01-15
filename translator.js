@@ -2,7 +2,7 @@
 var mpTransverse = [];
 var mpMotion = [];
 var mpLongitudinal = [];
-var npChange = [];
+var bpChange = [];
 
 function peakCollection() {
 	// Separate current freqArray into 2 important segments: Drum/Bass and Vocal/other instruments
@@ -54,6 +54,8 @@ function peakAnalysis() {
 	// mpTransverse holds time frames of change transversely
 	// mpLongitudinal holds time frames of change longitudinally
 	// mpMotion holds direction of highest peak in each time frame
+	// Using mpTransverse to determine UP arrow
+	// Using mpLongitudinal & mpMotion determine between LEFT arrow and RIGHT arrow
 
 
 	// Working with BASS PART second
@@ -68,9 +70,10 @@ function peakAnalysis() {
 	for (i = 0; i < valueBPArray.length; i++) {
 		// Check for adequate loudness, and significant enough for a response
 		if ((valueBPArray[i] > avg) && ((valueBPArray[i] - valueBPArray[i-1]) >= 32)){
-			npChange.push(i);
+			bpChange.push(i);
 		}
 	}
 	// In the end, what we obtain is
-	// npChange holds time frames of change significantly
+	// bpChange holds time frames of change significantly
+	// Using bpChange to determine DOWN arrow
 }
