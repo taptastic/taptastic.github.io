@@ -55,19 +55,15 @@ function updateGameArea() {
         switch (pos) {
             case 0:
                 var img = document.getElementById('left_arrow');
-                img.id = "left_arrow";
                 break;
             case 1:
                 var img = document.getElementById('up_arrow');
-                img.id = "up_arrow";
                 break;
             case 2:
                 var img = document.getElementById('down_arrow');
-                img.id = "down_arrow";
                 break;
             case 3:
                 var img = document.getElementById('right_arrow');
-                img.id = "right_arrow";
                 break;
         }
         myObstacles.push(new draw(50, 50, x, -50, img, img));
@@ -127,8 +123,8 @@ $(document).keydown(function(e) {
         case 37: // left
             left.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                console.log("id: " + myObstacles[i].id);
-                if (myObstacles[i].id == "left_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                console.log(myObstacles[i].id);
+                if (myObstacles[i].x == 0*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
@@ -140,7 +136,7 @@ $(document).keydown(function(e) {
         case 38: // up
             up.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == "up_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].id == 1*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
@@ -151,7 +147,7 @@ $(document).keydown(function(e) {
         case 39: // right
             right.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == "right_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].id == 2*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
@@ -162,7 +158,7 @@ $(document).keydown(function(e) {
         case 40: // down
             down.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == "down_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].id == 3*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
