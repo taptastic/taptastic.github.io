@@ -44,7 +44,7 @@ function updateGameArea() {
         x = pos*60+20;
         var img = new Image;
         img.src = "arrow_down.png";
-        myObstacles.push(new drawImage(50, 50, x, 0, img, img));
+        myObstacles.push(new draw(50, 50, x, 0, img, img));
     }
     left.update();
     up.update();
@@ -73,7 +73,7 @@ function component(width, height, color, x, y) {
     }
 }
 
-function drawImage(width, height, x, y, inactiveImg, activeImg) {
+function draw(width, height, x, y, inactiveImg, activeImg) {
     this.width = width;
     this.height = height;
     this.x = x;
