@@ -17,6 +17,9 @@ $(document).ready(function () {
     audioSrc.connect(analyser);
     audioSrc.connect(audioCtx.destination);
 
+    duration = audioElement.duration;
+    console.log("takes: " + duration);
+
     //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
     frequencyData = new Uint8Array(64);
 
