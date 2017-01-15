@@ -1,4 +1,9 @@
 // Get frequency data array and detect significant peaks / troughs at specific moment
+var mpTransverse = [];
+var mpMotion = [];
+var mpLongitudinal = [];
+var npChange = [];
+
 function peakCollection() {
 	// Separate current freqArray into 2 important segments: Drum/Bass and Vocal/other instruments
 	// Note: This is a relative separation and is based on trials and errors
@@ -26,8 +31,6 @@ function peakAnalysis() {
 
 	// Working with MAIN PART first
 	// motion values: 0 for stationary, 1 for right, -1 for left
-	var mpTransverse = [];
-	var mpMotion = [];
 	for (var i = 1; i < indexMPArray.length; i++) {
 		// Not the same peak, meaning there is some transition in peak => Transverse
 		if (indexMPArray[i] != indexMPArray[i-1]) {
@@ -40,7 +43,6 @@ function peakAnalysis() {
 		} else mpMotion.push(0); // STATIONARY
     }
     // Seeking for longitudinal motion: a significant change in value of highest peak
-    var mpLongitudinal = [];
 	for (i = 1; i < valueMPArray.length; i++) {
 		// Check for sudden increase in value of peak. Value used: 32
 		if (valueMPArray[i] - valueMPArray[i-1] >= 32){
@@ -57,7 +59,6 @@ function peakAnalysis() {
 	// Working with BASS PART second
 	// Idea: Find Group of Peaks and any changes will correspond to an action
 	// TLDR High sensitivity
-	var npChange = [];
 
 	// First, check whether the peak value exceed the average value of whole composition
 	// to determine whether the sound is soft or hearable
