@@ -1,5 +1,6 @@
 var WIDTH = 270;
 var HEIGHT = 480;
+var score = 0;
 
 var myObstacles = [];
 var left;
@@ -116,18 +117,42 @@ $(document).keydown(function(e) {
     switch(e.which) {
         case 37: // left
             left.flash();
+            for (i = 0; i < myObstacles.length; i += 1) {
+                if (myObstacles[i].id == 'left_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                    score++;
+                    myObstacles[i].id = null
+                }
+            }
             break;
 
         case 38: // up
             up.flash();
+            for (i = 0; i < myObstacles.length; i += 1) {
+                if (myObstacles[i].id == 'up_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                    score++;
+                    myObstacles[i].id = null
+                }
+            }
             break;
 
         case 39: // right
             right.flash();
+            for (i = 0; i < myObstacles.length; i += 1) {
+                if (myObstacles[i].id == 'right_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                    score++;
+                    myObstacles[i].id = null
+                }
+            }
             break;
 
         case 40: // down
             down.flash();
+            for (i = 0; i < myObstacles.length; i += 1) {
+                if (myObstacles[i].id == 'down_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                    score++;
+                    myObstacles[i].id = null
+                }
+            }
             break;
 
         default: return; // exit this handler for other keys
