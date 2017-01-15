@@ -248,5 +248,5 @@ function extractArrow() {
 }
 
 function calculateBpm() {
-    bpm = Math.round(countLengthSong / duration);
+    bpm = (duration/ countLengthSong);
 }
