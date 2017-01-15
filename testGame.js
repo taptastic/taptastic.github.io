@@ -24,10 +24,11 @@ var myGameArea = {
 
 
 function startGame() {
-    left = new component(50, 50, "blue", 0*60+20, HEIGHT - 70);
-    up = new component(50, 50, "blue", 1*60+20, HEIGHT - 70);
-    down = new component(50, 50, "blue", 2*60+20, HEIGHT - 70);
-    right = new component(50, 50, "blue", 3*60+20, HEIGHT - 70);
+    var img1 = document.getElementById('down_arrow');
+    left = new draw(50, 50, 1*60+20, HEIGHT - 70, img1, img1);
+    up = new draw(50, 50, "blue", 1*60+20, HEIGHT - 70, img1, img1);
+    down = new draw(50, 50, "blue", 2*60+20, HEIGHT - 70, img1, img1);
+    right = new draw(50, 50, "blue", 3*60+20, HEIGHT - 70, img1, img1);
     myGameArea.start();
 }
 
@@ -42,14 +43,26 @@ function updateGameArea() {
         // Returns a random number between min (inclusive) and max (exclusive)
         pos = Math.floor(Math.random()*(maxPos-minPos)+minPos);
         x = pos*60+20;
-        var img = new Image();
-        img.src = "down_arrow.png";
+        switch (pos) {
+            case 0:
+                var img = document.getElementById('down_arrow');
+                break;
+            case 1:
+                var img = document.getElementById('down_arrow');
+                break;
+            case 2:
+                var img = document.getElementById('down_arrow');
+                break;
+            case 3:
+                var img = document.getElementById('down_arrow');
+                break;
+        }
         myObstacles.push(new draw(50, 50, x, -50, img, img));
     }
-    left.update();
-    up.update();
-    down.update();
-    right.update();
+    left.redraw();
+    up.redraw();
+    down.redraw();
+    right.redraw();
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += 1;
         myObstacles[i].redraw();
@@ -84,9 +97,8 @@ function draw(width, height, x, y, inactiveImg, activeImg) {
     }
     this.flash = function() {
         ctx = myGameArea.context;
-        activeImg.onload = function () {
-            ctx.drawImage(activeImg, this.x, this.y, this.width, this.height);
-        };
+        ctx.fillStyle = "blue";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
 

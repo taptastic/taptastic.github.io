@@ -20,9 +20,3 @@ function getAsAudio(readFile) {
     };
     reader.readAsArrayBuffer(readFile);
 }
-
-function addAudio(mp3src) {
-    var audio = document.getElementById('testAudio');
-	audio.crossOrigin = "anonymous";
-    audio.src = window.URL.createObjectURL(mp3src);
-}
