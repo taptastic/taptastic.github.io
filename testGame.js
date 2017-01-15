@@ -42,7 +42,8 @@ function updateGameArea() {
         // Returns a random number between min (inclusive) and max (exclusive)
         pos = Math.floor(Math.random()*(maxPos-minPos)+minPos);
         x = pos*60+20;
-        myObstacles.push(new drawImage(50, 50, x, 0, document.getElementById("arrow_down")));
+        var img = document.getElementById("arrow_down");
+        myObstacles.push(new drawImage(50, 50, x, 0, img));
     }
     left.update();
     up.update();
@@ -87,26 +88,26 @@ function drawImage(width, height, x, y, inactiveImg, activeImg) {
 }
 
 function everyInterval(n) {
-    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-    return false;
+    return (myGameArea.frameNo / n) % 1 == 0;
+
 }
 
 $(document).keydown(function(e) {
     switch(e.which) {
         case 37: // left
-            left.changeColor();
+            left.flash();
             break;
 
         case 38: // up
-            up.changeColor();
+            up.flash();
             break;
 
         case 39: // right
-            right.changeColor();
+            right.flash();
             break;
 
         case 40: // down
-            down.changeColor();
+            down.flash();
             break;
 
         default: return; // exit this handler for other keys
