@@ -136,7 +136,7 @@ $(document).keydown(function(e) {
         case 38: // up
             up.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == 1*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].x == 1*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
@@ -147,7 +147,7 @@ $(document).keydown(function(e) {
         case 39: // right
             right.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == 2*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].x == 2*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
@@ -158,7 +158,7 @@ $(document).keydown(function(e) {
         case 40: // down
             down.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == 3*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].x == 3*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
