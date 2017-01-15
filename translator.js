@@ -48,12 +48,28 @@ function peakAnalysis() {
 			mpLongitudinal.push(i);
 		}
 	}
-	// In the end, what we have are:
+	// In the end, what we obtain are:
 	// mpTransverse holds time frames of change transversely
 	// mpLongitudinal holds time frames of change longitudinally
 	// mpMotion holds direction of highest peak in each time frame
 
 
 	// Working with BASS PART second
-	//
+	// Idea: Find Group of Peaks and any changes will correspond to an action
+	// TLDR High sensitivity
+	var npChange = [];
+
+	// First, check whether the peak value exceed the average value of whole composition
+	// to determine whether the sound is soft or hearable
+    var sum = frequencyData.reduce(function(a, b) { return a + b; });
+    var avg = sum / frequencyData.length;
+
+	for (i = 0; i < valueBPArray.length; i++) {
+		// Check for adequate loudness, and significant enough for a response
+		if ((valueBPArray[i] > avg) && ((valueBPArray[i] - valueBPArray[i-1]) >= 32)){
+			npChange.push(i);
+		}
+	}
+	// In the end, what we obtain is
+	// npChange holds time frames of change significantly
 }
