@@ -228,25 +228,25 @@ function extractArrow() {
             img0 = document.getElementById('left_arrow');
             x = 0*60+20;
             myObstacles.push(new draw(50, 50, x, -50, img0, img0));
-            console.log("add at: " + i + ", left");
+            console.log("add at: " + frame + ", left");
         }
         if (finalizeAA[frame][1] == 1) {
             img1 = document.getElementById('up_arrow');
             x = 1*60+20;
             myObstacles.push(new draw(50, 50, x, -50, img1, img1));
-            console.log("add at: " + i + ", up");
+            console.log("add at: " + frame + ", up");
         }
         if (finalizeAA[frame][2] == 1) {
             img2 = document.getElementById('down_arrow');
             x = 2*60+20;
             myObstacles.push(new draw(50, 50, x, -50, img2, img2));
-            console.log("add at: " + i + ", down");
+            console.log("add at: " + frame + ", down");
         }
         if (finalizeAA[frame][3] == 1) {
             img3 = document.getElementById('right_arrow');
             x = 3*60+20;
             myObstacles.push(new draw(50, 50, x, -50, img3, img3));
-            console.log("add at: " + i + ", right");
+            console.log("add at: " + frame + ", right");
         }
         frame++;
     }
