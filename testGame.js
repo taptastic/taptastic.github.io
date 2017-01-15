@@ -79,9 +79,7 @@ function draw(width, height, x, y, inactiveImg, activeImg) {
     this.y = y;
     this.redraw = function() {
         ctx = myGameArea.context;
-        inactiveImg.onload = function () {
-            ctx.drawImage(inactiveImg, this.x, this.y, this.width, this.height);
-        };
+        ctx.drawImage(inactiveImg, this.x, this.y, this.width, this.height);
     }
     this.flash = function() {
         ctx = myGameArea.context;
