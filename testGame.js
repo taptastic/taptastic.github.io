@@ -19,7 +19,7 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         //this.interval1 = setInterval(updateGameArea, 20);
-        this.interval2 = setInterval(checkEndSong, 20);
+        //this.interval2 = setInterval(checkEndSong, 20);
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -234,5 +234,6 @@ function makeSong() {
     console.log(mpMotion);
     console.log(bpChange);
     console.log(finalizeAA);
+    console.log("length of finAA: " + finalizeAA.length);
     this.interval1 = setInterval(updateGameArea, 20);
 }
