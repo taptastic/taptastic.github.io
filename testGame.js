@@ -94,9 +94,9 @@ function updateGameArea() {
     right.redraw();
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += 1;
-        if (myObstacles[i].y == HEIGHT - 80) {
-            play();
-        }
+        // if (myObstacles[i].y == HEIGHT - 80) {
+        //     play();
+        // }
         if (myObstacles[i].y >= HEIGHT) {
             myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
         }
