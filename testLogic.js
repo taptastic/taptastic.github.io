@@ -117,6 +117,6 @@ function setHalfVolume() {
 // }
 
 function playAudio() {
-    document.getElementById("make_song").disabled = true;
+    // document.getElementById("make_song").disabled = true;
     document.getElementById('testAudio').play();
 }
