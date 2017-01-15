@@ -74,10 +74,10 @@ function updateGameArea() {
     right.redraw();
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += 1;
-        myObstacles[i].redraw();
         if (myObstacles[i].y >= HEIGHT) {
             myObstacles[i] = null;
         }
+        myObstacles[i].redraw();
     }
 }
 
