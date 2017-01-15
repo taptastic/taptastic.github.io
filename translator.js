@@ -7,25 +7,25 @@ function peakCollection() {
 
     // Find peak from the bassArray, locating it as the foundation peak
 	var valueBP = Math.max.apply(Math, bassArray);
-	var indexBP = bassArray.indexOf(initialBP);
+	var indexBP = bassArray.indexOf(valueBP);
 
 	// Find peak from the mainArray, locating it as the foundation peak
 	var valueMP = Math.max.apply(Math, mainArray);
-	var indexMP = bassArray.indexOf(initialMP);
+	var indexMP = bassArray.indexOf(valueMP);
 
 	// Append the values found into the arrays that we will be looking and comparing for behaviours.
-	valueBPArray.push(initialBP);
+	valueBPArray.push(valueBP);
 	indexBPArray.push(indexBP);
-    valueMPArray.push(initialBP);
-    indexMPArray.push(indexBP);
+    valueMPArray.push(valueMP);
+    indexMPArray.push(indexMP);
 }
 
 // Understand the peak data and translate them into valid information
 function peakAnalysis() {
 	// Observing and comparing for trend / motion
 
-	// Working with Main part first
-	// motionCheck: 0 for stationary, 1 for right, -1 for left
+	// Working with MAIN PART first
+	// motion values: 0 for stationary, 1 for right, -1 for left
 	var mpTransverse = [];
 	var mpMotion = [];
 	for (var i = 1; i < indexMPArray.length; i++) {
@@ -35,23 +35,41 @@ function peakAnalysis() {
 			mpTransverse.push(i);
 			// Record direction of travel
 			if (indexMPArray[i] > indexMPArray[i-1]) {
-				mpMotion.push(1);
-			} else mpMotion.push(-1);
-		} else mpMotion.push(0);
+				mpMotion.push(1); // LEFT
+			} else mpMotion.push(-1); // RIGHT
+		} else mpMotion.push(0); // STATIONARY
     }
     // Seeking for longitudinal motion: a significant change in value of highest peak
     var mpLongitudinal = [];
-	for (var i = 1; i < valueMPArray.lengthh; i++) {
+	for (i = 1; i < valueMPArray.length; i++) {
 		// Check for sudden increase in value of peak. Value used: 32
 		if (valueMPArray[i] - valueMPArray[i-1] >= 32){
 			// Record time frame in which the peak changes suddenly
 			mpLongitudinal.push(i);
 		}
 	}
-	// In the end, what we have is:
+	// In the end, what we obtain are:
 	// mpTransverse holds time frames of change transversely
 	// mpLongitudinal holds time frames of change longitudinally
 	// mpMotion holds direction of highest peak in each time frame
 
-	
+
+	// Working with BASS PART second
+	// Idea: Find Group of Peaks and any changes will correspond to an action
+	// TLDR High sensitivity
+	var npChange = [];
+
+	// First, check whether the peak value exceed the average value of whole composition
+	// to determine whether the sound is soft or hearable
+    var sum = frequencyData.reduce(function(a, b) { return a + b; });
+    var avg = sum / frequencyData.length;
+
+	for (i = 0; i < valueBPArray.length; i++) {
+		// Check for adequate loudness, and significant enough for a response
+		if ((valueBPArray[i] > avg) && ((valueBPArray[i] - valueBPArray[i-1]) >= 32)){
+			npChange.push(i);
+		}
+	}
+	// In the end, what we obtain is
+	// npChange holds time frames of change significantly
 }
