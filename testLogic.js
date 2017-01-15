@@ -1,8 +1,8 @@
 var next = 0;
 var frequencyData;
-var initialBPArray = [];
+var valueBPArray = [];
 var indexBPArray = [];
-var initialMPArray = [];
+var valueMPArray = [];
 var indexMPArray = [];
 
 $(document).ready(function () {
