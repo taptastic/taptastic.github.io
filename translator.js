@@ -3,6 +3,7 @@ var mpTransverse = [];
 var mpMotion = [];
 var mpLongitudinal = [];
 var bpChange = [];
+var finalizeAA = [];
 
 function peakCollection() {
 	// Separate current freqArray into 2 important segments: Drum/Bass and Vocal/other instruments
@@ -76,4 +77,46 @@ function peakAnalysis() {
 	// In the end, what we obtain is
 	// bpChange holds time frames of change significantly
 	// Using bpChange to determine DOWN arrow
+}
+
+function peakFinalization() {
+	// Based on all information acquired, creating an array or array[4] containing information for each frame
+	// to decide which arrows will appear
+	var isUp = 0;
+	var isDown = 0;
+	var isLeft = 0;
+	var isRight = 0;
+	var count = 0;
+	for (var i = 0; i < frequencyData.length; i++) {
+		// Determine UP
+		if (mpTranverse.indexOf(i) != -1) {
+			isUp = 1;
+		} else isUp = 0;
+
+		// Determine DOWN
+		if (bpChange.indexOf(i) != -1) {
+			isDown = 1;
+		} else isDown = 0;
+
+		// Determine LEFT / RIGHT
+		if (mpLongitudinal.indexOf(i) != -1) {
+			count++;
+			if (mpMotion[count-1] = -1) {
+				isLeft = 1;
+				isRight = 0;
+			}
+			if (mpMotion[count-1] = 1) {
+				isRight = 1;
+				isLeft = 0;
+			}
+			if (mpMotion[count-1] = 0) {
+				isLeft = 1;
+				isRight = 1;
+			}
+		} else {
+			isLeft = 0;
+			isRight = 0;
+		}
+		finalizeAA.push([isLeft, isUp, isDown, isRight]);
+	}
 }
