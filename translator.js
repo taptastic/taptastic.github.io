@@ -17,7 +17,7 @@ function peakCollection() {
 
 	// Find peak from the mainArray, locating it as the foundation peak
 	var valueMP = Math.max.apply(Math, mainArray);
-	var indexMP = bassArray.indexOf(valueMP);
+	var indexMP = mainArray.indexOf(valueMP);
 
 	// Append the values found into the arrays that we will be looking and comparing for behaviours.
 	valueBPArray.push(valueBP);
