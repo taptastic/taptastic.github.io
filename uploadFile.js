@@ -1,3 +1,5 @@
+var duration;
+
 function startRead(evt) {
     var file = document.getElementById('file').files[0];
     if (file) {
@@ -17,6 +19,8 @@ function getAsAudio(readFile) {
         var audio = document.getElementById('testAudio');
         audio.crossOrigin = "anonymous";
         audio.src = window.URL.createObjectURL(readFile);
+        duration = audio.duration;
+        console.log("takes: " + duration);
     };
     reader.readAsArrayBuffer(readFile);
 }
