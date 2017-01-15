@@ -81,13 +81,13 @@ function draw(width, height, x, y, inactiveImg, activeImg) {
     this.update = function() {
         ctx = myGameArea.context;
         inactiveImg.onload = function () {
-            ctx.drawImage(inactiveImg.src, this.x, this.y, this.width, this.height);
+            ctx.drawImage(inactiveImg, this.x, this.y, this.width, this.height);
         };
     }
     this.flash = function() {
         ctx = myGameArea.context;
         activeImg.onload = function () {
-            ctx.drawImage(activeImg.src, this.x, this.y, this.width, this.height);
+            ctx.drawImage(activeImg, this.x, this.y, this.width, this.height);
         };
     }
 }
