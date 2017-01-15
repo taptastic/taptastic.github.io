@@ -122,4 +122,5 @@ function setHalfVolume() {
 function playAudio() {
     // document.getElementById("make_song").disabled = true;
     document.getElementById('testAudio').play();
+    console.log("length: " + document.getElementById('testAudio').duration);
 }
