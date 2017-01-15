@@ -87,7 +87,7 @@ function peakFinalization() {
 	var isLeft = 0;
 	var isRight = 0;
 	var count = 0;
-	for (var i = 0; i < frequencyData.length; i++) {
+	for (var i = 0; i < countLengthSong; i++) {
 		// Determine UP
 		if (mpTransverse.indexOf(i) != -1) {
 			isUp = 1;

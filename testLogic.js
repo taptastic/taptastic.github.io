@@ -4,6 +4,7 @@ var valueBPArray = [];
 var indexBPArray = [];
 var valueMPArray = [];
 var indexMPArray = [];
+var countLengthSong = 0;
 
 $(document).ready(function () {
 
@@ -61,6 +62,7 @@ $(document).ready(function () {
 
         //console.log(frequencyData);
         peakCollection();
+        countLengthSong++;
     }
 
     // Run the loop
