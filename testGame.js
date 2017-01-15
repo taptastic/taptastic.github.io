@@ -43,7 +43,7 @@ function updateGameArea() {
         pos = Math.floor(Math.random()*(maxPos-minPos)+minPos);
         x = pos*60+20;
         var img = document.getElementById("arrow_down");
-        myObstacles.push(new drawImage(50, 50, x, 0, img));
+        myObstacles.push(new drawImage(50, 50, x, 0, img, img));
     }
     left.update();
     up.update();
