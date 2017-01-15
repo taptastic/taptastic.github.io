@@ -227,6 +227,7 @@ function makeSong() {
     peakFinalization();
     console.log(mpTransverse);
     console.log(mpLongitudinal);
+    console.log(mpMotion);
     console.log(bpChange);
     console.log(finalizeAA);
     this.interval1 = setInterval(updateGameArea, 20);
