@@ -112,3 +112,9 @@ function previousSong() {
     if (next == -1) next = 6;
     chooseSong();
 }
+
+function playAudio() {
+    peakCollection();
+    peakAnalysis();
+    document.getElementById('testAudio').play();
+}
