@@ -121,10 +121,10 @@ $(document).keydown(function(e) {
             left.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
                 console.log(myObstacles[i].id);
-                if (myObstacles[i].id == 'left_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].id == "left_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i].id = null
+                    myObstacles[i] = null
                 }
             }
             break;
@@ -132,10 +132,10 @@ $(document).keydown(function(e) {
         case 38: // up
             up.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == 'up_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].id == "up_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i].id = null
+                    myObstacles[i] = null
                 }
             }
             break;
@@ -143,10 +143,10 @@ $(document).keydown(function(e) {
         case 39: // right
             right.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == 'right_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].id == "right_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i].id = null
+                    myObstacles[i] = null
                 }
             }
             break;
@@ -154,10 +154,10 @@ $(document).keydown(function(e) {
         case 40: // down
             down.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (myObstacles[i].id == 'down_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                if (myObstacles[i].id == "down_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i].id = null
+                    myObstacles[i] = null
                 }
             }
             break;
