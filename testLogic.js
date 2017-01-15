@@ -60,11 +60,11 @@ $(document).ready(function () {
             });
 
         //console.log(frequencyData);
+        peakCollection();
+        peakAnalysis();
     }
 
     // Run the loop
-    peakCollection();
-    peakAnalysis();
     renderChart();
 
 });
