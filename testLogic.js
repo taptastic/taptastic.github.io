@@ -63,6 +63,8 @@ $(document).ready(function () {
     }
 
     // Run the loop
+    peakCollection();
+    peakAnalysis();
     renderChart();
 
 });
@@ -114,8 +116,6 @@ function setHalfVolume() {
 // }
 
 function playAudio() {
-    peakCollection();
-    peakAnalysis();
     document.getElementById("make_song").disabled = true;
     document.getElementById('testAudio').play();
 }
