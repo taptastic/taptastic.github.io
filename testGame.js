@@ -222,6 +222,7 @@ function checkEndSong() {
 }
 
 function makeSong() {
+    peakAnalysis();
     peakFinalization();
     console.log(mpTransverse);
     console.log(mpLongitudinal);
