@@ -55,15 +55,19 @@ function updateGameArea() {
         switch (pos) {
             case 0:
                 var img = document.getElementById('left_arrow');
+                img.id = "left_arrow";
                 break;
             case 1:
                 var img = document.getElementById('up_arrow');
+                img.id = "up_arrow";
                 break;
             case 2:
                 var img = document.getElementById('down_arrow');
+                img.id = "down_arrow";
                 break;
             case 3:
                 var img = document.getElementById('right_arrow');
+                img.id = "right_arrow";
                 break;
         }
         myObstacles.push(new draw(50, 50, x, -50, img, img));
