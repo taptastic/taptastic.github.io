@@ -32,7 +32,7 @@ function startGame() {
     var down_active = document.getElementById('button_down_active');
     var right_inactive = document.getElementById('button_right_inactive');
     var right_active = document.getElementById('button_right_active');
-    left = new draw(50, 50, 1*60+20, HEIGHT - 70, left_inactive, left_active);
+    left = new draw(50, 50, 0*60+20, HEIGHT - 70, left_inactive, left_active);
     up = new draw(50, 50, 1*60+20, HEIGHT - 70, up_inactive, up_active);
     down = new draw(50, 50, 2*60+20, HEIGHT - 70, down_inactive, down_active);
     right = new draw(50, 50, 3*60+20, HEIGHT - 70, right_inactive, right_active);
