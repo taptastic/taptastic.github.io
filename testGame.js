@@ -118,6 +118,7 @@ function updateGameArea() {
         }
         myObstacles[i].redraw();
     }
+    console.log("length: " + myObstacles.length);
 }
 
 // function component(width, height, color, x, y) {
