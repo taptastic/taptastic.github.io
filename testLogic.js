@@ -116,5 +116,6 @@ function setHalfVolume() {
 function playAudio() {
     peakCollection();
     peakAnalysis();
+    document.getElementById("make_song").disabled = true;
     document.getElementById('testAudio').play();
 }

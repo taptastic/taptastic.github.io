@@ -18,7 +18,8 @@ var myGameArea = {
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
-        this.interval = setInterval(updateGameArea, 20);
+        //this.interval1 = setInterval(updateGameArea, 20);
+        this.interval2 = setInterval(checkEndSong, 20);
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -42,7 +43,7 @@ function startGame() {
     myGameArea.start();
 }
 
-function updateGameArea() {
+function updateGameArea1() {
     var x, pos, minPos, maxPos;
     myGameArea.clear();
     myGameArea.frameNo += 1;
@@ -67,6 +68,44 @@ function updateGameArea() {
                 break;
         }
         myObstacles.push(new draw(50, 50, x, -50, img, img));
+    }
+    left.redraw();
+    up.redraw();
+    down.redraw();
+    right.redraw();
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].y += 1;
+        if (myObstacles[i].y >= HEIGHT) {
+            myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
+        }
+        myObstacles[i].redraw();
+    }
+}
+
+function updateGameArea() {
+    var img, x;
+    myGameArea.clear();
+    for (i = 0; i < finalizeAA.length; i += 1) {
+        if (finalizeAA[i][0] == 1) {
+            img = document.getElementById('left_arrow');
+            x = 0*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img, img));
+        }
+        if (finalizeAA[i][1] == 1) {
+            img = document.getElementById('up_arrow');
+            x = 1*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img, img));
+        }
+        if (finalizeAA[i][2] == 1) {
+            img = document.getElementById('down_arrow');
+            x = 2*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img, img));
+        }
+        if (finalizeAA[i][3] == 1) {
+            img = document.getElementById('right_arrow');
+            x = 3*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img, img));
+        }
     }
     left.redraw();
     up.redraw();
@@ -171,3 +210,18 @@ $(document).keydown(function(e) {
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
+
+function checkEndSong() {
+    for (i = 0; i < frequencyData.length; i += 1) {
+        if (frequencyData[i] != 0) {
+            return false;
+        }
+    }
+    document.getElementById("make_song").disabled = false;
+    return true;
+}
+
+function makeSong() {
+    peakFinalization();
+    this.interval1 = setInterval(updateGameArea, 20);
+}
