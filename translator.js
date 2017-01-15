@@ -38,8 +38,7 @@ function peakAnalysis() {
 			// Record time frame in which the peak transit
 			mpLongitudinal.push(i);
 			// Record direction of travel
-			var rand = Math.random();
-			if (Math.abs(rand - 1) < Math.abs(rand - 0)){
+			if (indexMPArray[i] > indexMPArray[i-1]) {
 				mpMotion.push(1);
 			} else mpMotion.push(0);
 			// 0 is LEFT, 1 is RIGHT
@@ -103,11 +102,11 @@ function peakFinalization() {
 		// Determine LEFT / RIGHT
 		if (mpLongitudinal.indexOf(i) != -1) {
 			count++;
-			if (mpMotion[count-1] = 0) {
+			if (mpMotion[count-1] == 0) {
 				isLeft = 1;
 				isRight = 0;
 			}
-			if (mpMotion[count-1] = 1) {
+			if (mpMotion[count-1] == 1) {
 				isRight = 1;
 				isLeft = 0;
 			}
