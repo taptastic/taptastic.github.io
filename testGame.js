@@ -83,28 +83,28 @@ function updateGameArea1() {
 }
 
 function updateGameArea() {
-    var img, x;
+    var img0, img1, img2, img3, x;
     myGameArea.clear();
     for (i = 0; i < finalizeAA.length; i += 1) {
         if (finalizeAA[i][0] == 1) {
-            img = document.getElementById('left_arrow');
+            img0 = document.getElementById('left_arrow');
             x = 0*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img, img));
+            myObstacles.push(new draw(50, 50, x, -50, img0, img0));
         }
         if (finalizeAA[i][1] == 1) {
-            img = document.getElementById('up_arrow');
+            img1 = document.getElementById('up_arrow');
             x = 1*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img, img));
+            myObstacles.push(new draw(50, 50, x, -50, img1, img1));
         }
         if (finalizeAA[i][2] == 1) {
-            img = document.getElementById('down_arrow');
+            img2 = document.getElementById('down_arrow');
             x = 2*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img, img));
+            myObstacles.push(new draw(50, 50, x, -50, img2, img2));
         }
         if (finalizeAA[i][3] == 1) {
-            img = document.getElementById('right_arrow');
+            img3 = document.getElementById('right_arrow');
             x = 3*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img, img));
+            myObstacles.push(new draw(50, 50, x, -50, img3, img3));
         }
     }
     left.redraw();
