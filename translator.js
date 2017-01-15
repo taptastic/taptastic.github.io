@@ -34,13 +34,15 @@ function peakAnalysis() {
 	// motion values: 0 for stationary, 1 for right, -1 for left
 	for (var i = 1; i < indexMPArray.length; i++) {
 		// Not the same peak, meaning there is some transition in peak => Longitudinal
-		if (Math.abs(indexMPArray[i] - indexMPArray[i-1]) > 16) {
+		if (Math.abs(indexMPArray[i] - indexMPArray[i-1]) > 8) {
 			// Record time frame in which the peak transit
 			mpLongitudinal.push(i);
 			// Record direction of travel
-			if (indexMPArray[i] <= 32) {
+			if (indexMPArray[i] <= 36) {
 				mpMotion.push(-1); // LEFT
-			} else mpMotion.push(1); // RIGHT
+			} else if (indexMPArray[i] > 36) {
+				mpMotion.push(1); // RIGHT
+            }
 		}
     }
     // Seeking for longitudinal motion: a significant change in value of highest peak
