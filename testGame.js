@@ -85,32 +85,6 @@ function updateGameArea1() {
 function updateGameArea() {
     var img0, img1, img2, img3, x;
     myGameArea.clear();
-    for (i = 0; i < finalizeAA.length; i ++) {
-        if (finalizeAA[i][0] == 1) {
-            img0 = document.getElementById('left_arrow');
-            x = 0*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img0, img0));
-            console.log("add at: " + i + ", left");
-        }
-        if (finalizeAA[i][1] == 1) {
-            img1 = document.getElementById('up_arrow');
-            x = 1*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img1, img1));
-            console.log("add at: " + i + ", up");
-        }
-        if (finalizeAA[i][2] == 1) {
-            img2 = document.getElementById('down_arrow');
-            x = 2*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img2, img2));
-            console.log("add at: " + i + ", down");
-        }
-        if (finalizeAA[i][3] == 1) {
-            img3 = document.getElementById('right_arrow');
-            x = 3*60+20;
-            myObstacles.push(new draw(50, 50, x, -50, img3, img3));
-            console.log("add at: " + i + ", right");
-        }
-    }
     left.redraw();
     up.redraw();
     down.redraw();
@@ -229,6 +203,7 @@ function checkEndSong() {
 function makeSong() {
     peakAnalysis();
     peakFinalization();
+    extractArrow();
     console.log(mpTransverse);
     console.log(mpLongitudinal);
     console.log(mpMotion);
@@ -236,4 +211,33 @@ function makeSong() {
     console.log(finalizeAA);
     console.log("length of finAA: " + finalizeAA.length);
     this.interval1 = setInterval(updateGameArea, 20);
+}
+
+function extractArrow() {
+    for (i = 0; i < finalizeAA.length; i ++) {
+        if (finalizeAA[i][0] == 1) {
+            img0 = document.getElementById('left_arrow');
+            x = 0*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img0, img0));
+            console.log("add at: " + i + ", left");
+        }
+        if (finalizeAA[i][1] == 1) {
+            img1 = document.getElementById('up_arrow');
+            x = 1*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img1, img1));
+            console.log("add at: " + i + ", up");
+        }
+        if (finalizeAA[i][2] == 1) {
+            img2 = document.getElementById('down_arrow');
+            x = 2*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img2, img2));
+            console.log("add at: " + i + ", down");
+        }
+        if (finalizeAA[i][3] == 1) {
+            img3 = document.getElementById('right_arrow');
+            x = 3*60+20;
+            myObstacles.push(new draw(50, 50, x, -50, img3, img3));
+            console.log("add at: " + i + ", right");
+        }
+    }
 }
