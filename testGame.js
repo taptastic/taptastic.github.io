@@ -75,7 +75,7 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += 1;
         if (myObstacles[i].y >= HEIGHT) {
-            myObstacles[i] = null;
+            myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
         }
         myObstacles[i].redraw();
     }
@@ -127,7 +127,7 @@ $(document).keydown(function(e) {
                 if (myObstacles[i].id == "left_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i] = null
+                    myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
                     console.log("got to here");
                 }
             }
@@ -139,7 +139,7 @@ $(document).keydown(function(e) {
                 if (myObstacles[i].id == "up_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i] = null
+                    myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
                 }
             }
             break;
@@ -150,7 +150,7 @@ $(document).keydown(function(e) {
                 if (myObstacles[i].id == "right_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i] = null
+                    myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
                 }
             }
             break;
@@ -161,7 +161,7 @@ $(document).keydown(function(e) {
                 if (myObstacles[i].id == "down_arrow" && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
-                    myObstacles[i] = null
+                    myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
                 }
             }
             break;
