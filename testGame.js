@@ -123,12 +123,10 @@ $(document).keydown(function(e) {
         case 37: // left
             left.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
-                console.log(myObstacles[i].id);
                 if (myObstacles[i].x == 0*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
-                    console.log("got to here");
                 }
             }
             break;
@@ -147,10 +145,13 @@ $(document).keydown(function(e) {
         case 39: // right
             right.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
+                console.log(myObstacles[i].x);
                 if (myObstacles[i].x == 2*60+20 && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
+                    console.log(myObstacles[i].x);
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
+                    console.log("got to here");
                 }
             }
             break;
