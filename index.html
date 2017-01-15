@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body onload="startGame()">
+<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
 <header name="Access-Control-Allow-Origin" value="*"></header>
 <header name="Access-Control-Allow-Headers"
         value="Origin, Accept, X-Requested-With, Content-Type, If-Modified-Since"></header>
@@ -20,4 +21,5 @@
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="testLogic.js"></script>
 <script src="uploadFile.js"></script>
+<script src="testGame.js"></script>
 </html>
