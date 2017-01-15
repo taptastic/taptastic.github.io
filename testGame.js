@@ -97,7 +97,8 @@ function draw(width, height, x, y, inactiveImg, activeImg) {
     }
     this.flash = function() {
         ctx = myGameArea.context;
-        ctx.drawImage(activeImg, this.x, this.y, this.width, this.height);
+        ctx.fillStyle = "blue";
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
 
