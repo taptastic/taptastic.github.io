@@ -30,11 +30,16 @@ function peakCollection() {
 function peakAnalysis() {
 	// Observing and comparing for trend / motion
 
+    // First, check whether the peak value exceed the average value of whole composition
+    // to determine whether the sound is soft or hearable
+    var sum = frequencyData.reduce(function(a, b) { return a + b; });
+    var avg = sum / frequencyData.length;
+
 	// Working with MAIN PART first
 	// motion values: 0 for stationary, 1 for right, -1 for left
 	for (var i = 1; i < indexMPArray.length; i++) {
 		// Not the same peak, meaning there is some transition in peak => Longitudinal
-		if ((indexMPArray[i] != indexMPArray[i-1]) && (Math.abs(indexMPArray[i] - indexMPArray[i-1]) > 8)) {
+		if (Math.abs(indexMPArray[i] - indexMPArray[i-1]) > 6) {
 			// Record time frame in which the peak transit
 			mpLongitudinal.push(i);
 			// Record direction of travel
@@ -62,11 +67,6 @@ function peakAnalysis() {
 	// Working with BASS PART second
 	// Idea: Find Group of Peaks and any changes will correspond to an action
 	// TLDR High sensitivity
-
-	// First, check whether the peak value exceed the average value of whole composition
-	// to determine whether the sound is soft or hearable
-    var sum = frequencyData.reduce(function(a, b) { return a + b; });
-    var avg = sum / frequencyData.length;
 
 	for (i = 0; i < valueBPArray.length; i++) {
 		// Check for adequate loudness, and significant enough for a response
