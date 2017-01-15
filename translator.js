@@ -1,8 +1,8 @@
 // Get frequency data array and detect significant peaks / troughs at specific moment
-var mpTransverse = [];
-var mpMotion = [];
-var mpLongitudinal = [];
-var bpChange = [];
+var mpTransverse = []; //up
+var mpMotion = []; //determines left or right of longtitudinal
+var mpLongitudinal = []; //might be left or right
+var bpChange = []; //down
 
 function peakCollection() {
 	// Separate current freqArray into 2 important segments: Drum/Bass and Vocal/other instruments

@@ -4,8 +4,6 @@ body, html {
 }
 
 canvas {
-    height: 50%;
-    width: 25%;
-    border:3px solid #d3d3d3;
+    border:3px solid #000000;
     background-color: #1C2038;
 }
