@@ -75,7 +75,6 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += 1;
         myObstacles[i].redraw();
-        console.log(myObstacles[i].id);
     }
 }
 
@@ -121,6 +120,7 @@ $(document).keydown(function(e) {
         case 37: // left
             left.flash();
             for (i = 0; i < myObstacles.length; i += 1) {
+                console.log(myObstacles[i].id);
                 if (myObstacles[i].id == 'left_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
                     document.getElementById('score').innerHTML = "Score: " + score;
