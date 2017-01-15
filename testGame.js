@@ -1,12 +1,14 @@
 var WIDTH = 270;
 var HEIGHT = 480;
-var score = 0;
 
 var myObstacles = [];
 var left;
 var up;
 var down;
 var right;
+
+var score = document.getElementById('score');
+score = 0;
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
@@ -120,6 +122,7 @@ $(document).keydown(function(e) {
             for (i = 0; i < myObstacles.length; i += 1) {
                 if (myObstacles[i].id == 'left_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
+                    document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles[i].id = null
                 }
             }
@@ -130,6 +133,7 @@ $(document).keydown(function(e) {
             for (i = 0; i < myObstacles.length; i += 1) {
                 if (myObstacles[i].id == 'up_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
+                    document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles[i].id = null
                 }
             }
@@ -140,6 +144,7 @@ $(document).keydown(function(e) {
             for (i = 0; i < myObstacles.length; i += 1) {
                 if (myObstacles[i].id == 'right_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
+                    document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles[i].id = null
                 }
             }
@@ -150,6 +155,7 @@ $(document).keydown(function(e) {
             for (i = 0; i < myObstacles.length; i += 1) {
                 if (myObstacles[i].id == 'down_arrow' && myObstacles[i].y >= HEIGHT - 80 && myObstacles[i].y <= HEIGHT - 60) {
                     score++;
+                    document.getElementById('score').innerHTML = "Score: " + score;
                     myObstacles[i].id = null
                 }
             }
