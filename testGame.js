@@ -217,7 +217,7 @@ function makeSong() {
     console.log(bpChange);
     console.log(finalizeAA);
     console.log("length of finAA: " + finalizeAA.length);
-    this.interval1 = setInterval(extractArrow, bpm*2);
+    this.interval1 = setInterval(extractArrow, bpm);
     this.interval2 = setInterval(updateGameArea, 20);
 }
 
@@ -253,7 +253,7 @@ function extractArrow() {
 }
 
 function calculateBpm() {
-    bpm = (duration * 1000)/ countLengthSong;
+    bpm = (duration * 1000)/ finalizeAA.length;
 }
 
 function play() {
