@@ -62,7 +62,7 @@ $(document).ready(function () {
 
         //console.log(frequencyData);
         peakCollection();
-        //countLengthSong++;
+        countLengthSong++;
     }
 
     // Run the loop
