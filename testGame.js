@@ -75,6 +75,7 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += 1;
         myObstacles[i].redraw();
+        console.log(myObstacles[i].id);
     }
 }
 

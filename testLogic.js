@@ -59,7 +59,7 @@ $(document).ready(function () {
                 return 'rgb(0, 0, ' + d + ')';
             });
 
-        console.log(frequencyData);
+        //console.log(frequencyData);
     }
 
     // Run the loop
