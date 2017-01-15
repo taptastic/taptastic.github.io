@@ -24,11 +24,18 @@ var myGameArea = {
 
 
 function startGame() {
-    var img1 = document.getElementById('down_arrow');
-    left = new draw(50, 50, 1*60+20, HEIGHT - 70, img1, img1);
-    up = new draw(50, 50, "blue", 1*60+20, HEIGHT - 70, img1, img1);
-    down = new draw(50, 50, "blue", 2*60+20, HEIGHT - 70, img1, img1);
-    right = new draw(50, 50, "blue", 3*60+20, HEIGHT - 70, img1, img1);
+    var left_inactive = document.getElementById('button_left_inactive');
+    var left_active = document.getElementById('button_left_active');
+    var up_inactive = document.getElementById('button_up_inactive');
+    var up_active = document.getElementById('button_up_active');
+    var down_inactive = document.getElementById('button_down_inactive');
+    var down_active = document.getElementById('button_down_active');
+    var right_inactive = document.getElementById('button_right_inactive');
+    var right_active = document.getElementById('button_right_active');
+    left = new draw(50, 50, 0*60+20, HEIGHT - 70, left_inactive, left_active);
+    up = new draw(50, 50, 1*60+20, HEIGHT - 70, up_inactive, up_active);
+    down = new draw(50, 50, 2*60+20, HEIGHT - 70, down_inactive, down_active);
+    right = new draw(50, 50, 3*60+20, HEIGHT - 70, right_inactive, right_active);
     myGameArea.start();
 }
 
@@ -37,7 +44,6 @@ function updateGameArea() {
     myGameArea.clear();
     myGameArea.frameNo += 1;
     if (myGameArea.frameNo == 1 || everyInterval(75)) {
-        // x = myGameArea.canvas.width;
         minPos = 0;
         maxPos = 4;
         // Returns a random number between min (inclusive) and max (exclusive)
@@ -45,16 +51,16 @@ function updateGameArea() {
         x = pos*60+20;
         switch (pos) {
             case 0:
-                var img = document.getElementById('down_arrow');
+                var img = document.getElementById('left_arrow');
                 break;
             case 1:
-                var img = document.getElementById('down_arrow');
+                var img = document.getElementById('up_arrow');
                 break;
             case 2:
                 var img = document.getElementById('down_arrow');
                 break;
             case 3:
-                var img = document.getElementById('down_arrow');
+                var img = document.getElementById('right_arrow');
                 break;
         }
         myObstacles.push(new draw(50, 50, x, -50, img, img));
@@ -69,22 +75,22 @@ function updateGameArea() {
     }
 }
 
-function component(width, height, color, x, y) {
-    this.width = width;
-    this.height = height;
-    this.x = x;
-    this.y = y;
-    this.update = function() {
-        ctx = myGameArea.context;
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
-    this.changeColor = function() {
-        ctx = myGameArea.context;
-        ctx.fillStyle = "white";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
-}
+// function component(width, height, color, x, y) {
+//     this.width = width;
+//     this.height = height;
+//     this.x = x;
+//     this.y = y;
+//     this.update = function() {
+//         ctx = myGameArea.context;
+//         ctx.fillStyle = color;
+//         ctx.fillRect(this.x, this.y, this.width, this.height);
+//     }
+//     this.changeColor = function() {
+//         ctx = myGameArea.context;
+//         ctx.fillStyle = "white";
+//         ctx.fillRect(this.x, this.y, this.width, this.height);
+//     }
+// }
 
 function draw(width, height, x, y, inactiveImg, activeImg) {
     this.width = width;
@@ -94,11 +100,10 @@ function draw(width, height, x, y, inactiveImg, activeImg) {
     this.redraw = function() {
         ctx = myGameArea.context;
         ctx.drawImage(inactiveImg, this.x, this.y, this.width, this.height);
-    }
+    };
     this.flash = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = "blue";
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(activeImg, this.x, this.y, this.width, this.height);
     }
 }
 

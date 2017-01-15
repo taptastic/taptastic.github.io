@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, user-scalable=no"/> <!-- disable scaling on mobile -->
-	<link rel="shortcut icon" href="/favicon.ico?">
-	<title>Taptastic</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/> <!-- disable scaling on mobile -->
+    <link rel="Stylesheet" href="style.css"/>
+    <link rel="shortcut icon" href="/favicon.ico?">
+    <title>Taptastic</title>
 </head>
 <body onload="startGame()">
-<header name="Access-Control-Allow-Origin" value="*"></header>
-<header name="Access-Control-Allow-Headers"
-        value="Origin, Accept, X-Requested-With, Content-Type, If-Modified-Since"></header>
-<header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD"></header>
+<div>
+    <header name="Access-Control-Allow-Origin" value="*"></header>
+    <header name="Access-Control-Allow-Headers"
+            value="Origin, Accept, X-Requested-With, Content-Type, If-Modified-Since"></header>
+    <header name="Access-Control-Allow-Methods" value="GET, OPTIONS, HEAD"></header>
+</div>
 <audio id="testAudio" crossOrigin="anonymous" onloadeddata="setHalfVolume()" src="sample1_classic.mp3"></audio>
-<img id="down_arrow" src="arrow_down.png" height="50" width="50" style="display:none">
+<div>
+    <img id="up_arrow" src="arrow_up.png" height="50" width="50" style="display:none">
+    <img id="down_arrow" src="arrow_down.png" height="50" width="50" style="display:none">
+    <img id="left_arrow" src="arrow_left.png" height="50" width="50" style="display:none">
+    <img id="right_arrow" src="arrow_right.png" height="50" width="50" style="display:none">
+</div>
+<div>
+    <img id="button_down_active" src="button_down_active.png" height="50" width="50" style="display:none">
+    <img id="button_down_inactive" src="button_down_inactive.png" height="50" width="50" style="display:none">
+    <img id="button_up_active" src="button_up_active.png" height="50" width="50" style="display:none">
+    <img id="button_up_inactive" src="button_up_inactive.png" height="50" width="50" style="display:none">
+    <img id="button_left_active" src="button_left_active.png" height="50" width="50" style="display:none">
+    <img id="button_left_inactive" src="button_left_inactive.png" height="50" width="50" style="display:none">
+    <img id="button_right_active" src="button_right_active.png" height="50" width="50" style="display:none">
+    <img id="button_right_inactive" src="button_right_inactive.png" height="50" width="50" style="display:none">
+</div>
 <input id="file" type="file" onchange="startRead()"/>
 <div>
     <button onclick="playAudio()">Play the Audio</button>
