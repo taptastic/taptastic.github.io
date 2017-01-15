@@ -257,7 +257,7 @@ function calculateBpm() {
 
 function play() {
     if (flag) {
-        setTimeout(document.getElementById('testAudio').play(), 15000);
+        setTimeout(document.getElementById('testAudio').play(), 8000);
         flag = false;
     }
 }
