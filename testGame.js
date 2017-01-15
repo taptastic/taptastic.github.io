@@ -78,7 +78,6 @@ function updateGameArea1() {
     down.redraw();
     right.redraw();
     for (i = 0; i < myObstacles.length; i += 1) {
-
         myObstacles[i].y += 1;
         myObstacles[i].redraw();
         if (myObstacles[i].y >= HEIGHT) {
@@ -94,8 +93,10 @@ function updateGameArea() {
     down.redraw();
     right.redraw();
     for (i = 0; i < myObstacles.length; i += 1) {
-        play();
         myObstacles[i].y += 1;
+        if (myObstacles[i].y == HEIGHT - 80) {
+            play();
+        }
         if (myObstacles[i].y >= HEIGHT) {
             myObstacles.splice(myObstacles.indexOf(myObstacles[i]), 1);
         }
@@ -257,7 +258,7 @@ function calculateBpm() {
 
 function play() {
     if (flag) {
-        setTimeout(document.getElementById('testAudio').play(), 15000);
+        document.getElementById('testAudio').play();
         flag = false;
     }
 }
