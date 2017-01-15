@@ -39,7 +39,7 @@ function peakAnalysis() {
 			mpLongitudinal.push(i);
 			// Record direction of travel
 			var rand = Math.random();
-			if (Math.abs(rand - 1) > Math.abs(rand - 0)){
+			if (Math.abs(rand - 1) < Math.abs(rand - 0)){
 				mpMotion.push(1);
 			} else mpMotion.push(0);
 			// 0 is LEFT, 1 is RIGHT
