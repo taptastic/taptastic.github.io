@@ -42,7 +42,7 @@ function updateGameArea() {
         // Returns a random number between min (inclusive) and max (exclusive)
         pos = Math.floor(Math.random()*(maxPos-minPos)+minPos);
         x = pos*60+20;
-        myObstacles.push(new component(50, 50, "red", x, 0));
+        myObstacles.push(new drawImage(50, 50, x, 0, document.getElementById("arrow_down")));
     }
     left.update();
     up.update();
@@ -68,6 +68,21 @@ function component(width, height, color, x, y) {
         ctx = myGameArea.context;
         ctx.fillStyle = "white";
         ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+
+function drawImage(width, height, x, y, inactiveImg, activeImg) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.drawImage(inactiveImg, this.x, this.y, this.width, this.height);
+    }
+    this.flash = function() {
+        ctx = myGameArea.context;
+        ctx.drawImage(activeImg, this.x, this.y, this.width, this.height)
     }
 }
 
