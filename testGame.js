@@ -223,5 +223,6 @@ function checkEndSong() {
 
 function makeSong() {
     peakFinalization();
+    console.log(finalizeAA);
     this.interval1 = setInterval(updateGameArea, 20);
 }
