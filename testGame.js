@@ -42,8 +42,7 @@ function updateGameArea() {
         // Returns a random number between min (inclusive) and max (exclusive)
         pos = Math.floor(Math.random()*(maxPos-minPos)+minPos);
         x = pos*60+20;
-        var img = new Image;
-        img.src = "arrow_down.png";
+        var img = document.getElementById('down_arrow');
         myObstacles.push(new draw(50, 50, x, 0, img, img));
     }
     left.update();
@@ -52,7 +51,7 @@ function updateGameArea() {
     right.update();
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].y += 1;
-        myObstacles[i].update();
+        myObstacles[i].redraw();
     }
 }
 
@@ -78,7 +77,7 @@ function draw(width, height, x, y, inactiveImg, activeImg) {
     this.height = height;
     this.x = x;
     this.y = y;
-    this.update = function() {
+    this.redraw = function() {
         ctx = myGameArea.context;
         inactiveImg.onload = function () {
             ctx.drawImage(inactiveImg, this.x, this.y, this.width, this.height);
